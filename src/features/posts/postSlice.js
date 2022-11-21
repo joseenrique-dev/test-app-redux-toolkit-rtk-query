@@ -23,13 +23,14 @@ const postsSlice = createSlice({
       },
       //If you want to add a meta or error property to your action, or customize the payload of your action,
       //you have to use the prepare notation for defining the case reducer.
-      prepare(title, content) {
+      prepare(title, content, userId) {
         //entry params to the action
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            userId,
           },
         };
       },
