@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
 import { PostsList } from './features/posts/PostList';
+import { AddPostForm } from './features/posts/AddPostForm';
+import './App.css';
 
 function App() {
   return (
     <main className='App'>
+      <AddPostForm />
       <PostsList />
     </main>
   );

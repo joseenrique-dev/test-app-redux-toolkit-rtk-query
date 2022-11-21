@@ -7,7 +7,7 @@ const initialState = [
     content: 'I have heard good things...',
   },
   {
-    id: '1',
+    id: '2',
     title: 'Slices...',
     content: 'The more I say slice, the more I want pizza...',
   },
@@ -16,7 +16,7 @@ const initialState = [
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
-  reducer: {
+  reducers: {
     postAdded(state, action) {
       state.push(action.payload);
     },
