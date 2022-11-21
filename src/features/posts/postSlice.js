@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = [
   {
@@ -17,8 +17,22 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    postAdded(state, action) {
-      state.push(action.payload);
+    postAdded: {
+      reducer(state, action) {
+        state.push(action.payload);
+      },
+      //If you want to add a meta or error property to your action, or customize the payload of your action,
+      //you have to use the prepare notation for defining the case reducer.
+      prepare(title, content) {
+        //entry params to the action
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            content,
+          },
+        };
+      },
     },
   },
 });
