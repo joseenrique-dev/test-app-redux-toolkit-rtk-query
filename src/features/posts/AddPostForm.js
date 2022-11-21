@@ -30,6 +30,8 @@ export const AddPostForm = () => {
     </option>
   ));
 
+  const canSave = Boolean(title) && Boolean(content) && Boolean(userId);
+
   return (
     <section>
       <h2>Add a New Post</h2>
@@ -53,7 +55,12 @@ export const AddPostForm = () => {
           <option value=''></option>
           {userOptions}
         </select>
-        <button type='button' onClick={onSavePostClicked}>
+        <button
+          type='button'
+          onClick={onSavePostClicked}
+          disabled={!canSave}
+          style={{ cursor: canSave ? 'pointer' : '' }}
+        >
           Save Post
         </button>
       </form>
