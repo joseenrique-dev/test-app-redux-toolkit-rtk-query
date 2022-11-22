@@ -40,6 +40,8 @@ const initialState = {
 const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  console.log('doing post...');
+  debugger;
   const response = await axios.get(POSTS_URL);
   return response.data;
 });
