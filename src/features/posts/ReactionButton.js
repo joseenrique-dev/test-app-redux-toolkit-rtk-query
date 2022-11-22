@@ -13,7 +13,6 @@ const ReactionButtons = ({ post }) => {
   const dispatch = useDispatch();
   //returns an array of a given object's
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
-    console.log('Emojins', [name, emoji]);
     return (
       <button
         key={name}
