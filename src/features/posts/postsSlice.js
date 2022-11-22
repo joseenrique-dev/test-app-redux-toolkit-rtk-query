@@ -12,6 +12,7 @@ const initialState = [
       wow: 0,
       heart: 0,
       rocket: 0,
+      coffee: 0,
     },
   },
   {
@@ -24,6 +25,7 @@ const initialState = [
       wow: 0,
       heart: 0,
       rocket: 0,
+      coffee: 0,
     },
   },
 ];
@@ -47,6 +49,13 @@ const postsSlice = createSlice({
             content,
             date: new Date().toISOString(),
             userId,
+            reactions: {
+              thumbsUp: 0,
+              wow: 0,
+              heart: 0,
+              rocket: 0,
+              coffee: 0,
+            },
           },
         };
       },
