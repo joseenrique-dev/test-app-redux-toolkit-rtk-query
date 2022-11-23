@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllUsers } from '../users/usersSlice';
 import { addNewPost } from './postsSlice';
 
-export const AddPostForm = () => {
+const AddPostForm = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [userId, setUserId] = useState('');
-  const [addRequestStatue, setAddRequestStatus] = useState('idle');
+  const [addRequestStatus, setAddRequestStatus] = useState('idle');
 
   const dispatch = useDispatch();
   const users = useSelector(getAllUsers);
@@ -17,13 +17,13 @@ export const AddPostForm = () => {
   const onAuthorChanged = (e) => setUserId(e.target.value);
 
   const canSave =
-    [title, content, userId].every(Boolean) && addRequestStatue === 'idle';
+    [title, content, userId].every(Boolean) && addRequestStatus === 'idle';
 
   const onSavePostClicked = () => {
     try {
       if (canSave) {
         setAddRequestStatus('pending');
-        dispatch(addNewPost({ title, content, userId })).unwrap();
+        dispatch(addNewPost({ title, body: content, userId })).unwrap();
       }
 
       setTitle('');
@@ -78,3 +78,5 @@ export const AddPostForm = () => {
     </section>
   );
 };
+
+export default AddPostForm;

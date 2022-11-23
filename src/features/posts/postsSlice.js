@@ -47,6 +47,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 export const addNewPost = createAsyncThunk(
   'posts/addNewPost',
   async (initialPost) => {
+    debugger;
     const response = await axios.post(POSTS_URL, initialPost);
     return response.data;
   }
@@ -118,6 +119,7 @@ const postsSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addNewPost.fulfilled, (state, action) => {
+        debugger;
         // Fix for API post IDs:
         // Creating sortedPosts & assigning the id
         // would be not be needed if the fake API
