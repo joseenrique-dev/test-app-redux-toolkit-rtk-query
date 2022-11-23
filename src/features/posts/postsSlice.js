@@ -117,10 +117,6 @@ const postsSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
-      .addCase(fetchPosts.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      })
       .addCase(addNewPost.fulfilled, (state, action) => {
         // Fix for API post IDs:
         // Creating sortedPosts & assigning the id
