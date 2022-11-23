@@ -140,6 +140,7 @@ const postsSlice = createSlice({
           eyes: 0,
         };
         console.log(action.payload);
+
         state.posts.push(action.payload);
       });
   },
