@@ -1,11 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import PostAuthor from './PostAuthor';
 import { getPostById } from './postsSlice';
 import TimeAgo from './TimeAgo';
 
-const SinglePostPage = ({ postId }) => {
-  const post = useSelector(getPostById(postId));
+const SinglePostPage = () => {
+  const { postId } = useParams();
+  const post = useSelector((state) => getPostById(state, Number(postId)));
+  console.log('In home', post);
+
   if (!post) {
     return <h1>Post not found</h1>;
   }

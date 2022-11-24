@@ -20,7 +20,6 @@ export const PostsList = () => {
       dispatch(fetchPosts());
     }
   }, [postStatus, dispatch]);
-  debugger;
   let content;
   if (postStatus === 'loading') {
     content = <p>"Loading..."</p>;
