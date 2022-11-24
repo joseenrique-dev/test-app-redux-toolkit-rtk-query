@@ -47,7 +47,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 export const addNewPost = createAsyncThunk(
   'posts/addNewPost',
   async (initialPost) => {
-    debugger;
     const response = await axios.post(POSTS_URL, initialPost);
     return response.data;
   }
@@ -57,32 +56,32 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    postAdded: {
-      reducer(state, action) {
-        state.posts.push(action.payload);
-      },
-      //If you want to add a meta or error property to your action, or customize the payload of your action,
-      //you have to use the prepare notation for defining the case reducer.
-      prepare(title, content, userId) {
-        //entry params to the action
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            content,
-            date: new Date().toISOString(),
-            userId,
-            reactions: {
-              thumbsUp: 0,
-              wow: 0,
-              heart: 0,
-              rocket: 0,
-              coffee: 0,
-            },
-          },
-        };
-      },
-    },
+    // postAdded: { INFORMATION: We don't need this anymore. We ar5e using addNewPost. ;)
+    //   reducer(state, action) {
+    //     state.posts.push(action.payload);
+    //   },
+    //   //If you want to add a meta or error property to your action, or customize the payload of your action,
+    //   //you have to use the prepare notation for defining the case reducer.
+    //   prepare(title, content, userId) {
+    //     //entry params to the action
+    //     return {
+    //       payload: {
+    //         id: nanoid(),
+    //         title,
+    //         content,
+    //         date: new Date().toISOString(),
+    //         userId,
+    //         reactions: {
+    //           thumbsUp: 0,
+    //           wow: 0,
+    //           heart: 0,
+    //           rocket: 0,
+    //           coffee: 0,
+    //         },
+    //       },
+    //     };
+    //   },
+    // },
     reactionAdded(state, action) {
       const { postId, reaction } = action.payload;
       const existingPost = state.posts.find((post) => post.id === postId);
@@ -154,5 +153,7 @@ export const { postAdded, reactionAdded } = postsSlice.actions;
 export const getAllPosts = (state) => state.posts.posts;
 export const getPostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
+export const getPostById = (postId) =>
+  getAllPosts.find((post) => post.id === postId);
 
 export default postsSlice.reducer;
