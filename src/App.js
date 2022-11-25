@@ -14,18 +14,16 @@ function App() {
    *
    * */
   return (
-    <main className='App'>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<PostsList />} />
-          <Route path='post'>
-            <Route index element={<AddPostForm />} />
-            <Route path=':postId' element={<SinglePostPage />} />
-            <Route path='*' element={<NoMatch />} />
-          </Route>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<PostsList />} />
+        <Route path='post'>
+          <Route index element={<AddPostForm />} />
+          <Route path=':postId' element={<SinglePostPage />} />
+          <Route path='*' element={<NoMatch />} />
         </Route>
-      </Routes>
-    </main>
+      </Route>
+    </Routes>
   );
 }
 

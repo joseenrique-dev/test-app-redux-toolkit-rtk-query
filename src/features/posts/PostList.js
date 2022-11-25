@@ -34,10 +34,5 @@ export const PostsList = () => {
     content = <p>{postsError}</p>;
   }
 
-  return (
-    <section className='posts-list'>
-      <h2>Posts</h2>
-      {content}
-    </section>
-  );
+  return <>{content}</>;
 };
