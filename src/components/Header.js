@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const navigation = [{ name: 'Home', href: '/', current: true }];
 
@@ -27,18 +28,15 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
               <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
-                <div className='flex flex-shrink-0 items-center'>
-                  <img
-                    className='block h-8 w-auto lg:hidden'
-                    src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-                    alt='Your Company'
-                  />
-                  <img
-                    className='hidden h-8 w-auto lg:block'
-                    src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-                    alt='Your Company'
-                  />
-                </div>
+                <Link to='/'>
+                  <div className='flex flex-shrink-0 items-center'>
+                    <img
+                      className='hidden h-8 w-auto lg:block'
+                      src='https://robohash.org/static/img/top_logo.png'
+                      alt='Your Company'
+                    />
+                  </div>
+                </Link>
                 <div className='hidden sm:ml-6 sm:block'>
                   <div className='flex space-x-4'>
                     {navigation.map((item) => (

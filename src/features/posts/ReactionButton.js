@@ -17,7 +17,7 @@ const ReactionButtons = ({ post }) => {
       <button
         key={name}
         type='button'
-        className='reactionButton'
+        className='hover:border-b-4'
         onClick={() =>
           dispatch(reactionAdded({ postId: post.id, reaction: name }))
         }
@@ -27,6 +27,6 @@ const ReactionButtons = ({ post }) => {
     );
   });
 
-  return <div>{reactionButtons}</div>;
+  return <div className='pt-3 flex justify-between'>{reactionButtons}</div>;
 };
 export default ReactionButtons;

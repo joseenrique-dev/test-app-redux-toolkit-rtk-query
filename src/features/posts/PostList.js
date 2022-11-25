@@ -28,7 +28,10 @@ export const PostsList = () => {
       .slice()
       .sort((a, b) => b.date.localeCompare(a.date));
     content = orderedPosts.map((post) => (
-      <PostsExcerpt key={post.id} post={post} />
+      <div key={post.id}>
+        <PostsExcerpt post={post} />
+        <div className='h-6'></div>
+      </div>
     ));
   } else if (postStatus === 'failed') {
     content = <p>{postsError}</p>;
